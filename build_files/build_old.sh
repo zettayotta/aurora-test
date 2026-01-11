@@ -2,11 +2,6 @@
 
 set -ouex pipefail
 
-### Setup repos
-
-# Vivaldi
-dnf config-manager addrepo --from-repofile=https://repo.vivaldi.com/archive/vivaldi-fedora.repo
-
 ### Install packages
 
 # Packages can be installed from any enabled yum repo on the image.
@@ -15,7 +10,7 @@ dnf config-manager addrepo --from-repofile=https://repo.vivaldi.com/archive/viva
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf install -y tmux vivaldi-stable
+dnf5 install -y tmux
 
 # Use a COPR Example:
 #
@@ -24,6 +19,10 @@ dnf install -y tmux vivaldi-stable
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
 
+# Synology Drive from COPR
+dnf5 -y copr enable emixampp/synology-drive
+dnf5 -y install synology-drive
+dnf5 -y copr disable emixampp/synology-drive
 
 # Removes those cached packages and metadata, which is standard practice in image builds.
 # dnf5 clean all
