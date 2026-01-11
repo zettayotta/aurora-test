@@ -15,7 +15,10 @@ dnf config-manager addrepo --from-repofile=https://repo.vivaldi.com/archive/viva
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf install -y tmux vivaldi-stable
+# dnf install -y tmux
+
+# Layer Vivaldi into the image via rpm-ostree
+rpm-ostree install vivaldi-stable
 
 # Use a COPR Example:
 #
