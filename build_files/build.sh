@@ -29,7 +29,7 @@ set -ouex pipefail
 
 # Synology Drive from COPR
 dnf -y copr enable emixampp/synology-drive
-rpm-ostree  install synology-drive
+rpm-ostree  install synology-drive-noextra
 dnf -y copr disable emixampp/synology-drive
 
 # Removes those cached packages and metadata, which is standard practice in image builds.
