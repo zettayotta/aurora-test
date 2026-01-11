@@ -5,7 +5,7 @@ set -ouex pipefail
 ### Setup repos
 
 # Vivaldi
-# dnf config-manager addrepo --from-repofile=https://repo.vivaldi.com/archive/vivaldi-fedora.repo
+dnf config-manager addrepo --from-repofile=https://repo.vivaldi.com/archive/vivaldi-fedora.repo
 
 ### Install packages
 
@@ -18,7 +18,7 @@ set -ouex pipefail
 # dnf install -y tmux
 
 # Layer Vivaldi into the image via rpm-ostree
-# rpm-ostree install vivaldi-stable
+rpm-ostree install vivaldi-stable
 
 # Use a COPR Example:
 #
@@ -27,10 +27,6 @@ set -ouex pipefail
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
 
-# Synology Drive from COPR
-dnf -y copr enable emixampp/synology-drive
-rpm-ostree  install synology-drive
-dnf -y copr disable emixampp/synology-drive
 
 # Removes those cached packages and metadata, which is standard practice in image builds.
 # dnf5 clean all
