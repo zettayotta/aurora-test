@@ -19,6 +19,10 @@ dnf5 install -y tmux
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
 
+# Make sure /opt/Synology exists
+mkdir -p /opt/Synology
+chmod 755 /opt /opt/Synology
+
 # Synology Drive from COPR
 dnf5 -y copr enable emixampp/synology-drive
 dnf5 -y install synology-drive-noextra
